@@ -1,0 +1,114 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Horoscope Fun Game</title> 
+    <style> 
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 20px; 
+            background-color: #ffe6f0; /* Light pink background */ 
+            color: #4a4a4a; /* Darker gray text for readability */ 
+        } 
+        h1 { 
+            text-align: center; 
+            color: #ff66a3; /* Pink title */ 
+        } 
+        p { 
+            color: #333333; 
+        } 
+        #output, #stars, #yourday { 
+            margin-top: 20px; 
+            padding: 15px; 
+            border: 2px solid #ff66a3; /* Pink border */ 
+            border-radius: 10px; 
+            background-color: #fff0f5; /* Light pinkish background */ 
+            color: #4a4a4a; 
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */ 
+        } 
+        .zodiac-info { 
+            background-color: #ffe6f0; /* Very light pink background */ 
+            padding: 10px; 
+            border-radius: 5px; 
+            border: 1px solid #ff66a3; /* Pink border */ 
+            margin-bottom: 20px; 
+        } 
+        button { 
+            padding: 10px 20px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            margin-right: 10px; 
+            background-color: #ff66a3; /* Pink button background */ 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Slight shadow for buttons */ 
+            transition: background-color 0.3s ease; 
+        } 
+        button:hover { 
+            background-color: #ff3385; /* Darker pink on hover */ 
+        } 
+    </style> 
+</head> 
+<body> 
+    <h1>Horoscope Fun Game</h1> 
+    
+    <p><strong>Challenge:</strong> Generate a random number between 1 and 12 to see your zodiac sign, print stars as many times as the number, and receive a quote for the day!</p> 
+    
+    <div class="zodiac-info"> 
+        <strong>Also, see the Zodiac Signs and Quotes:</strong><br><br> 
+        1 - Leo: "Boldness is your friend today. Take charge and let your inner lion roar!"<br> 
+        2 - Pisces: "Let your intuition guide you today. Trust your instincts and swim with the flow."<br> 
+        3 - Aries: "Today is a day for action. Embrace your fiery nature and lead with confidence."<br> 
+        4 - Taurus: "Stability is key today. Stay grounded and enjoy the simple pleasures of life."<br> 
+        5 - Gemini: "Communication is your strength today. Share your ideas and connect with others."<br> 
+        6 - Cancer: "Nurture your loved ones today. Your caring nature will bring comfort to those around you."<br> 
+        7 - Leo: "Let your creativity shine today. Your confidence will inspire those around you."<br> 
+        8 - Virgo: "Attention to detail will serve you well today. Focus on the little things and stay organized."<br> 
+        9 - Libra: "Seek balance today. Harmonize your surroundings and bring peace to your relationships."<br> 
+        10 - Scorpio: "Embrace your passion today. Channel your intense energy into something meaningful."<br> 
+        11 - Sagittarius: "Adventure awaits you today. Be open to new experiences and embrace the unknown."<br> 
+        12 - Capricorn: "Your hard work will pay off today. Stay focused and keep moving towards your goals." 
+    </div> 
+ 
+    <button onclick="generateRandomNumber()">Generate Random Number</button> 
+    <button onclick="generateStars()">See Your Stars</button> 
+    <button onclick="generateHoroscope()">Reveal Your Horoscope</button> 
+    
+    <div id="output"> 
+        <strong>Random Number:</strong> <span id="randomNumber">N/A</span> 
+    </div> 
+ 
+    <div id="stars"> 
+        <strong>Your Stars:</strong> <span id="starOutput"></span> 
+    </div> 
+ 
+    <div id="yourday"> 
+        <strong>Your Zodiac Sign & Quote:</strong> <span id="dayOutput"></span> 
+    </div> 
+    
+    <script> 
+        // JavaScript code goes here 
+        var x;
+        function generateRandomNumber() {
+            x = Math.floor(Math.random() * 12) + 1;
+            document.getElementById('randomNumber') .innerHTML = x;
+        }
+        
+        let star = "";
+        
+        function generateStars () {
+            for (i = 0; i < x; i++) {
+                star += "*";
+            }
+            document.getElementById('starOutput') .innerHTML = star;
+        }
+
+        function generateHoroscope() {
+            let arr = ["Leo: Boldness is your friend today. Take charge and let your inner lion roar!", "Pisces: Let your intuition guide you today. Trust your instincts and swim with the flow.", "Aries: Today is a day for action. Embrace your fiery nature and lead with confidence.", "Taurus: Stability is key today. Stay grounded and enjoy the simple pleasures of life.", "Gemini: Communication is your strength today. Share your ideas and connect with others.", "Cancer: Nurture your loved ones today. Your caring nature will bring comfort to those around you.", "Leo: Let your creativity shine today. Your confidence will inspire those around you.", "Virgo: Attention to detail will serve you well today. Focus on the little things and stay organized.", "Libra: Seek balance today. Harmonize your surroundings and bring peace to your relationships.", "Scorpio: Embrace your passion today. Channel your intense energy into something meaningful.", "Sagittarius: Adventure awaits you today. Be open to new experiences and embrace the unknown.", "Capricorn: Your hard work will pay off today. Stay focused and keep moving towards your goals."];
+            document.getElementById('dayOutput') .innerHTML = arr[x - 1];
+        }
+    </script> 
+</body> 
+</html> 
